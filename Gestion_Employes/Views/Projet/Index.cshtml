@@ -1,0 +1,59 @@
+﻿@model IEnumerable<GestionEmployes.Models.repositories.Projet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom_projet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_debut)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_fin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Etat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdEquipe)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom_projet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_debut)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_fin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Etat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdEquipe)
+            </td>
+            <td class="table-action">
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="mdi mdi-square-edit-outline"></i></a> 
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="mdi mdi-eye"></i></a> 
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="mdi mdi-delete"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<GestionEmployes.Models.repositories.Equipe>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create" type="button" class="btn btn-primary btn-rounded"><i class="mdi mdi-plus"></i>Ajouter une equipe</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nom Equipe
+            </th>
+             <th>
+                @Html.DisplayNameFor(model => model.Employes)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom_equipe)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Employes)
+            </td>
+            <td class="table-action">
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="mdi mdi-square-edit-outline"></i></a> 
+                <a asp-action="Details" asp-route-id="@item.Id"><i class="mdi mdi-eye"></i></a> 
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="mdi mdi-delete"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

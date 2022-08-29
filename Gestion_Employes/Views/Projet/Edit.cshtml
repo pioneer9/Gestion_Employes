@@ -1,0 +1,55 @@
+﻿@model GestionEmployes.Models.repositories.Projet
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Projet</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4 container">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Nom_projet" class="control-label"></label>
+                <input asp-for="Nom_projet" class="form-control" />
+                <span asp-validation-for="Nom_projet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date_debut" class="control-label"></label>
+                <input asp-for="Date_debut" class="form-control" />
+                <span asp-validation-for="Date_debut" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Date_fin" class="control-label"></label>
+                <input asp-for="Date_fin" class="form-control" />
+                <span asp-validation-for="Date_fin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etat" class="control-label"></label>
+                <input asp-for="Etat" class="form-control" />
+                <span asp-validation-for="Etat" class="text-danger"></span>
+            </div>
+             <div class="form-group">
+                <label >Equipe</label>
+                <select asp-for="IdEquipe"  asp-items="@(new SelectList(ViewBag.ListEquipe,"Id","Nom_equipe"))">
+                    </select>
+                <span asp-validation-for="IdEquipe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a type="button" class="btn btn-info mt-2" asp-action="Index">Reteur</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

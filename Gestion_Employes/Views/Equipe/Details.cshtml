@@ -1,0 +1,30 @@
+﻿@model GestionEmployes.Models.repositories.Equipe
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Equipe</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Nom_equipe)
+        </dt>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Employes)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Nom_equipe)
+        </dd>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Employes)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" type="button" class="btn btn-primary mt-2" asp-route-id="@Model.Id">Edit</a> |
+    <a type="button" class="btn btn-info mt-2" asp-action="Index">Reteur</a>
+</div>

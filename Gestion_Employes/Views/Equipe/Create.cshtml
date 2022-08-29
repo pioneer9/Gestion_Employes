@@ -1,0 +1,43 @@
+﻿@model GestionEmployes.Models.repositories.Equipe
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Equipe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4 container">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label >Nom Equipe</label>
+                <input asp-for="Nom_equipe" class="form-control" />
+                <span asp-validation-for="Nom_equipe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label >Employes</label>
+                <select asp-for="Employes"  class="form-select mb-3"  asp-items="@(new SelectList(ViewBag.ListEmplye,"Id","Name"))">
+                    </select>
+                <span asp-validation-for="Employes" class="text-danger"></span>
+            </div>
+           
+            
+            <div class="form-group d-flex justify-content-between mt-3">
+                
+                <a type="button" class="btn btn-info" asp-action="Index"><i class="dripicons-chevron-left "></i>Reteur</a>
+                <input type="submit" value="Ajouter" class="btn btn-success" />
+            </div>
+        </form>
+        
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
